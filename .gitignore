@@ -1,0 +1,19 @@
+TLP Backups created by install.sh
+
+/etc/tlp.conf.bak*
+.bak-
+
+System/Shell artifacts
+
+*.log
+*.swp
+*~
+
+IDE specific (if any)
+
+.idea/
+.vscode/
+
+Project specific
+
+install.log
