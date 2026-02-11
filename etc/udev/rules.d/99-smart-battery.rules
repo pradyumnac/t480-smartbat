@@ -1,0 +1,9 @@
+# 1. Trigger on AC Adapter Plug/Unplug
+# This ensures we immediately inhibit BAT0 when you connect power.
+SUBSYSTEM=="power_supply", KERNEL=="AC*", ACTION=="change", RUN+="/usr/local/bin/smart-battery-priority.sh"
+
+# 2. Trigger on BAT1 (External) Updates
+# We need this because the script checks BAT1 percentage. 
+# It runs every time BAT1's charge changes (approx every 1-2 mins), 
+# so it can "release" BAT0 the moment BAT1 hits your target.
+SUBSYSTEM=="power_supply", KERNEL=="BAT1", ACTION=="change", RUN+="/usr/local/bin/smart-battery-priority.sh"
